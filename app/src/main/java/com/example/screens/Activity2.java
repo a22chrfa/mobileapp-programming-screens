@@ -3,6 +3,7 @@ package com.example.screens;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 public class Activity2 extends AppCompatActivity {
 
@@ -13,9 +14,18 @@ public class Activity2 extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            String name = extras.getString("text");
+            String text = extras.getString("text");
             int number = extras.getInt("number");
-            // Do something with the name and number
+
+            //Set text for first textView
+            TextView textString = findViewById(R.id.secondTextString);
+            textString.setText(text);
+
+            //Set int for second textView (number had to be converted)
+            String test = String.valueOf(number);
+            TextView passInt = findViewById(R.id.secondTextNumber);
+            passInt.setText(test);
+
         }
 
     }
